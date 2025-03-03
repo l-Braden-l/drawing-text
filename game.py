@@ -21,20 +21,17 @@ def handle_events ():
 
 
 
-txt_font = pygame.font.SysFont("Ariel", 30, bold = True, italic = True)
+
+
 #-------------------------------------------------
+def draw_text(screen, text, font, text_col, x, y):
+   
+   img = font.render(text, True, text_col)
+   screen.blit(img, (x, y))
 
-def draw_text(text,font,text_col,x,y):
-   render_txt = font.render(text, True, text_col)
-   screen.blit(render_txt, (x,y))
+#-------------------------------------------------
+   
 
-
-
-
-
-
-
-#--------------------------------------------------
 def main():
    screen = init_game()
    clock = pygame.time.Clock() # Initialize the clock here
@@ -43,7 +40,8 @@ def main():
       running = handle_events()
       screen.fill(config.WHITE) # Use color from config
 
-      draw_text("Hello World",txt_font, (0,0,0), 220, 150)
+      txt_font1 = pygame.font.SysFont("Ariel", 30)
+      draw_text(screen, "Hello World", txt_font1, (0,0,0), 220, 150)
 
       pygame.display.flip()
 
